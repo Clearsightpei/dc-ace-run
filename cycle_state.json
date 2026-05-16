@@ -1,14 +1,14 @@
 {
-  "cycle": 6,
+  "cycle": 7,
   "phase": 2,
   "last_batch": [
     "\u4e00",
-    "\u5341",
-    "\u4eba"
+    "\u5927",
+    "\u6728"
   ],
   "last_pass_count": 2,
   "last_total": 3,
-  "last_finished_at": "2026-05-16T16:55:00-04:00",
-  "notes": "First Phase-2 cycle: 2/3 correct. \u5341(0.78)/\u4eba(0.95) recognized first-try from composed+scaled stroke recipes \u2014 memory composes upward. \u4e00 not recognized (featureless OCR blind spot). OCR is_correct is the Phase-2 signal; phase-correlation now irrelevant.",
+  "last_finished_at": "2026-05-16T17:10:00-04:00",
+  "notes": "2/3. Falsifiable memory hypothesis confirmed: bold+flat made \u4e00 recognizable (0.63). \u6728 recognized @1.00 (4-stroke composition). \u5927 OCR=\u5929 \u2014 vertical stacking-order/composition error, codified in memory.",
   "pass_signal": "visual_score >= 0.7 in Phase 1; is_correct in Phase 2"
 }
