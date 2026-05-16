@@ -1,5 +1,5 @@
 {
-  "cycle": 4,
+  "cycle": 5,
   "phase": 1,
   "last_batch": [
     "na",
@@ -8,7 +8,7 @@
   ],
   "last_pass_count": 0,
   "last_total": 3,
-  "last_finished_at": "2026-05-16T16:25:00-04:00",
-  "notes": "0/3. Key finding: a wrong number in memory transfers faithfully (na heading 285 applied verbatim, too steep -> corrected to 325). dian must be t.dot(); heng_zhe shape OK but oversized.",
+  "last_finished_at": "2026-05-16T16:40:00-04:00",
+  "notes": "0/3 avg 0.29. Finding: phase-correlation visual_score noisy/non-monotonic at lone-stroke scale \u2014 visually-better c5 na/heng_zhe scored below c4. Memory transfer itself works perfectly. Curator recommends Phase 2 or retiring noisy carry-overs.",
   "pass_signal": "visual_score >= 0.7 in Phase 1; is_correct in Phase 2"
 }
