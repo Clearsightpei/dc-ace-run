@@ -17,8 +17,9 @@ previous attempts actually produced vs the ground truths.
 | dian     | 点   | c4 0.38 / c5 0.40 | failing — tiny dot; score barely moves |
 | heng_zhe | 横折 | c4 0.49 / c5 0.33 | shape correct; better-looking c5 scored LOWER |
 
-**Phase 2 characters (c6):** 十 ✓ recognized 0.78 · 人 ✓ recognized
-0.95 · 一 ✗ (OCR blind spot, featureless). Composition works.
+**Phase 2 characters:** c6 — 十 ✓0.78 · 人 ✓0.95 · 一 ✗ ·· c7 —
+一 ✓0.63 (bold-flat fix worked) · 木 ✓**1.00** · 大 ✗ (OCR'd 天).
+Composition works up to 4 strokes. 一 hypothesis CONFIRMED.
 
 Memory transfer confirmed: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
 (c3) → 0.39 (c4) → 0.29 (c5). pie 0.40→1.00 the moment the exact
@@ -66,15 +67,27 @@ Key Phase-2 lessons:
 2. **Scale up and center**: characters ~320–340px across, centered
    on (0,0), composed from the lone-stroke recipes scaled by ~4–5×.
    This worked.
-3. **Single-stroke "characters" (一) are an OCR blind spot** — too
-   featureless; a lone line is ambiguous to OCR (same root cause as
-   the Phase-1 thin-stroke metric noise). Best effort for 一: keep
-   it **near-flat (tilt ~0°, not 4°)** and use a **thicker pen
-   (pensize ~8–10)** so it reads as a bold bar, not a hairline.
-   But treat a failed 一 as a known hard case, not a regression.
-4. General: a **thicker pen (pensize 6–10) likely helps OCR** for
-   all Phase-2 characters — the GT/real glyphs are bold, not
-   hairline. Worth doing by default in Phase 2.
+3. **一 — SOLVED via bold + flat (hypothesis confirmed c7).** c6's
+   thin tilted 一 → not recognized. c7 used **pensize 12, tilt 0°,
+   ~340px** → OCR'd '一' @ 0.63, is_correct=True. The fix that was
+   only a hypothesis in c6 was validated in c7. Recipe for 一:
+   ```python
+   t.pensize(12); t.penup(); t.goto(-170, 0); t.setheading(0)
+   t.pendown(); t.forward(340); t.penup()
+   ```
+4. **Thicker pen (pensize ~9–12) is now confirmed default for all
+   Phase-2 characters** — bold glyphs read; hairlines don't.
+5. **大 vs 天 — composition/structure matters, not just strokes
+   (c7 0 fail).** c7's 大 had the heng as the *topmost* element
+   with pie+na hanging below it → OCR'd **天** @ 0.39. In 大 the
+   **pie must start ABOVE the heng** (the pie's top is the
+   character's highest point and pokes through the bar); the heng
+   is crossed near its middle, NOT sitting on top of a separate
+   人/八 below it. Rule: for crossing characters, get the *vertical
+   stacking order* right — which stroke is topmost changes the
+   identity. 木 (✓1.00) worked because shu runs through the heng
+   from above; apply the same "vertical stroke pierces the heng,
+   extends above it" logic to 大's pie.
 
 ---
 
