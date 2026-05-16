@@ -1,10 +1,10 @@
 {
-  "cycle": 2,
+  "cycle": 3,
   "phase": 1,
-  "last_batch": ["heng", "shu", "pie"],
+  "last_batch": ["pie", "na", "ti"],
   "last_pass_count": 2,
   "last_total": 3,
-  "last_finished_at": "2026-05-15T23:12:00-04:00",
-  "notes": "Memory-transfer test: 0.25 -> 0.71 avg visual with identical task brief. heng+shu solved; pie needs more curve.",
+  "last_finished_at": "2026-05-16T16:10:00-04:00",
+  "notes": "pie SOLVED (0.40->1.00) via exact memory rotation fix. ti passed first try (0.95). na failed (0.22) by reusing pie's curvature; memory now separates deep-curve vs shallow-bow.",
   "pass_signal": "visual_score >= 0.7 in Phase 1; is_correct in Phase 2"
 }
