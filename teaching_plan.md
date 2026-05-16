@@ -2,9 +2,25 @@
 
 ## Current phase
 
-**Phase 1 — atomic strokes.** The Drawer is a fresh subagent that has
-never seen this codebase. It has no memory. We are starting from
-zero, by design.
+**Phase 2 — simple characters** (entered cycle 6). Rationale for the
+transition: by cycle 5, Phase-1 lone-stroke phase-correlation was
+near its noise floor (visually-better drawings scored *lower*), and
+the experiment's core question — does memory emerge and transfer? —
+was already answered yes (shu/pie/ti solved from memory; faithful
+verbatim transfer, including of a wrong number, documented). Further
+lone-stroke drilling had low information value. Phase 2 gives the
+metric more structure and unlocks the OCR `is_correct` target.
+
+Phase-2 entry batch deliberately uses only characters that are pure
+compositions of already-solved strokes (一, 十, 人) to isolate the
+*composition* skill from new-stroke learning.
+
+### Phase 1 — atomic strokes (cycles 1–5, completed)
+
+Cold start with a memoryless fresh subagent, by design. heng/shu/
+pie/ti reached passing/solved; na/dian/heng_zhe never passed but
+their failure became a finding about metric noise rather than a
+learning gap.
 
 ## Pacing principle (provisional)
 
