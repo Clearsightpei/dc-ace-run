@@ -1,14 +1,14 @@
 {
-  "cycle": 5,
-  "phase": 1,
+  "cycle": 6,
+  "phase": 2,
   "last_batch": [
-    "na",
-    "dian",
-    "heng_zhe"
+    "\u4e00",
+    "\u5341",
+    "\u4eba"
   ],
-  "last_pass_count": 0,
+  "last_pass_count": 2,
   "last_total": 3,
-  "last_finished_at": "2026-05-16T16:40:00-04:00",
-  "notes": "0/3 avg 0.29. Finding: phase-correlation visual_score noisy/non-monotonic at lone-stroke scale \u2014 visually-better c5 na/heng_zhe scored below c4. Memory transfer itself works perfectly. Curator recommends Phase 2 or retiring noisy carry-overs.",
+  "last_finished_at": "2026-05-16T16:55:00-04:00",
+  "notes": "First Phase-2 cycle: 2/3 correct. \u5341(0.78)/\u4eba(0.95) recognized first-try from composed+scaled stroke recipes \u2014 memory composes upward. \u4e00 not recognized (featureless OCR blind spot). OCR is_correct is the Phase-2 signal; phase-correlation now irrelevant.",
   "pass_signal": "visual_score >= 0.7 in Phase 1; is_correct in Phase 2"
 }
