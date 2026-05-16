@@ -24,10 +24,23 @@ from PIL import Image
 WIDTH = 800
 HEIGHT = 600
 
-DEFAULT_GRAPHICS = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "..", "draw_character", "graphics.txt",
-)
+def _find_default_graphics():
+    """Walk up from this file looking for draw_character/graphics.txt.
+
+    Works whether tools/ lives at <root>/dc_ace_run/tools/ (one level
+    above is <root>) or <root>/runs/<name>/tools/ (two levels above is
+    <root>). Searches up to 5 levels.
+    """
+    here = os.path.dirname(os.path.abspath(__file__))
+    for depth in range(6):
+        candidate = os.path.join(here, *([".."] * depth), "draw_character", "graphics.txt")
+        if os.path.exists(candidate):
+            return os.path.abspath(candidate)
+    # Fall back to old behavior so the error message stays informative.
+    return os.path.abspath(os.path.join(here, "..", "..", "draw_character", "graphics.txt"))
+
+
+DEFAULT_GRAPHICS = _find_default_graphics()
 
 
 def load_character(graphics_path, char):
@@ -78,12 +91,17 @@ def render(char, out_path, scale=0.4, graphics_path=None):
     for stroke in medians:
         if not stroke:
             continue
-        # Source coords are 0–1024, origin top-left, y grows downward.
-        # Center at (0,0) and flip y for turtle's bottom-left origin.
+        # MakeMeAHanzi `medians` use math-convention coords (y grows UP),
+        # not image-convention (y grows down). Verified against 二 and 大:
+        # 二 stroke 1 (short, top) is at y=581-633 — higher MMH-y is higher
+        # on the character. 大 stroke 2 (撇) goes from (416, 810) (upper-right)
+        # to (138, 41) (lower-left). So the transform is a plain center-and-scale,
+        # no y-flip. Earlier versions had `ty = (512 - y) * scale` which rendered
+        # all characters upside-down — cycle 5 in the original run hit this.
         def to_xy(p):
             x, y = p
             tx = (x - 512) * scale
-            ty = (512 - y) * scale
+            ty = (y - 512) * scale
             return tx, ty
 
         x0, y0 = to_xy(stroke[0])
