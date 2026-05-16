@@ -102,3 +102,19 @@ prior entries.
 - **Cycle summary from last cycle:** "0/3; phase-correlation noisy/
   non-monotonic at stroke scale; memory transfer works; recommend
   Phase 2 or retiring noisy carry-overs." → Followed (Phase 2).
+
+## Cycle 7 — 2026-05-16
+
+- **Phase:** 2
+- **Batch:** [一, 大, 木]
+- **Why this batch:** Stay in Phase 2 (cycle 6 proved composition
+  from memorized strokes works: 十/人 recognized first try). Carry
+  over 一 ONCE to test the Curator's specific hypothesis that a
+  bolder, flatter pen makes the featureless single stroke OCR-
+  recognizable — a clean falsifiable test of a memory entry. Add 大
+  (heng+pie+na) and 木 (heng+shu+pie+na): both are pure compositions
+  of solved strokes but more complex than c6's, probing whether the
+  composition skill scales to 3–4 stroke characters.
+- **Cycle summary from last cycle:** "2/3 correct; composition
+  works; 一 is an OCR blind spot; recommend more multi-stroke chars
+  + optional bold-pen retry of 一." → Followed.
