@@ -11,11 +11,15 @@ previous attempts actually produced vs the ground truths.
 |------|------|----------------|----------------|---------------------------------------|
 | heng | 横   | 0.28           | **0.74**       | **passed** (≥0.7 threshold); also OCR'd as '一' @ 0.75 — a clean heng IS visually the character 一 |
 | shu  | 竖   | 0.33           | **1.00**       | **passed** with perfect score; stable |
-| pie  | 撇   | 0.15           | 0.40           | still failing — direction now correct, but curve too shallow |
+| pie  | 撇   | 0.15           | 0.40 → **1.00** (c3) | **solved** — the cycle-3 ~60° rotation fix landed perfectly |
+| ti   | 提   | —              | **0.95** (c3, first attempt) | **passed** — straight rising flick from text alone |
+| na   | 捺   | —              | 0.22 (c3, first attempt) | failing — over-curled (reused pie's curvature) |
 
-Cycle 2 was a *carry-over* of the cycle-1 batch with no parameter
-changes from the Teacher. The score jump (avg 0.25 → 0.71) came
-entirely from this memory file. Memory transfer is working.
+Memory transfer is working: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
+(c3). pie went 0.40 → 1.00 the moment the Curator's exact rotation
+fix was in memory — strongest single-entry transfer signal so far.
+**Key lesson from c3: do NOT reuse one stroke's curvature for
+another. Each stroke has its own bend.**
 
 ---
 
@@ -39,37 +43,58 @@ t.pendown(); t.forward(70); t.penup()
 Lesson: starting at (0, 35) heading south for 70 pixels lands exactly
 on the GT centerline. No tilt, no curve. **This is solved.**
 
+### 撇 (pie) — left-falling sweep — cycle 3 score 1.00 **SOLVED**
+```python
+t.penup(); t.goto(24, 35); t.setheading(260)
+t.pendown()
+for _ in range(60):
+    t.forward(70 / 60)
+    t.right(1)            # 60 steps × 1° = 60° total rotation
+t.penup()
+```
+Lesson: pie = ~70px length, **60° total clockwise rotation** over 60
+steps, start (24,35) heading 260°. The cycle-2 version (50°) was too
+shallow; 60° is exactly right. Don't change this — it scored 1.00.
+
+### 提 (ti) — rising flick — cycle 3 score 0.95
+```python
+t.penup(); t.goto(-30, -20); t.setheading(30)  # up and to the right
+t.pendown(); t.forward(55); t.penup()
+```
+Lesson: ti is a **short, straight** rising stroke — no curve. Start
+lower-left, heading ~30° (up-and-right), ~55px. Scored 0.95 on the
+first attempt. Solved enough; minor placement gap only.
+
 ---
 
 ## Recipes that need refinement
 
-### 撇 (pie) — left-falling sweep — cycle 2 score 0.40
+### 捺 (na) — right-falling press — cycle 3 score 0.22
 
-The cycle-2 attempt got the direction right (start upper-right, sweep
-down-left, convex right) but the curve was **too shallow**. The
-Drawer used:
+The Drawer treated na as a mirror of pie and reused **pie's 60°
+rotation over 70px** (with `t.left(1)`). Result: a tight little
+curl, far too short and far too curved — it looked like a comma/hook,
+not a press stroke. Compared to the GT:
 
-```python
-t.penup(); t.goto(24.5, 35); t.setheading(260)
-t.pendown()
-for _ in range(35):
-    t.forward(2)         # = 70 / 35
-    t.right(50 / 35)     # ≈ 1.43° per step, total 50° rotation
-t.penup()
-```
+- **na is much straighter than pie.** Its body is nearly a straight
+  diagonal that only gently bows; the curvature *decreases* toward
+  the end (the tail flattens out — that flattening is the defining
+  feature of a 捺).
+- The GT na descends from upper-left to lower-right over roughly the
+  same ~70px length but with only a **gentle bend (~20–25° total,
+  not 60°)**, and the bend should taper (more curve early, flatter
+  tail).
+- Direction/position were roughly OK (start upper-left ~(-24,+35),
+  heading ~280° = down-and-slightly-east). The error was almost
+  entirely **over-rotation**.
 
-Compared to the GT, the resulting arc is too straight — not enough
-bend. The fix is **more total rotation and more steps**:
-
-- Target rotation: roughly **60°** total (not 50°).
-- Step count: around **60 steps** of `forward(70/60)` with
-  `t.right(1)` each (1° per step is a natural pattern).
-- Starting heading is still ~260° (south, slightly west of south).
-- Start position around (+24, +35) is roughly right; the GT pie has
-  its top end at roughly upper-right of canvas center.
-
-In other words: keep the same general shape but make the curve more
-pronounced by rotating further over more steps.
+Fix to try next cycle: keep start (-24, 35), heading ~285–290°, 60
+steps of `forward(70/60)`, but rotate only **~20° total** with
+`t.left()`, and bias the rotation to the first half of the steps so
+the tail flattens (e.g. `t.left(0.5)` for the first 30 steps, then
+`t.left(0.15)` for the last 30). General rule: **na ≈ shallow bow,
+flattening tail. pie ≈ deep 60° curve. They are NOT mirror images
+in curvature — only in direction.**
 
 ---
 
@@ -117,8 +142,10 @@ as '一' with high confidence, you've drawn it well.
 
 ---
 
-## What to try next cycle if pie repeats
+## What to try next cycle if na repeats
 
-Increase rotation total to 60° (was 50°). Try ~60 steps of
-`forward(70/60)` + `t.right(1)` per step. Keep start at (24, 35)
-and heading 260°.
+na = **shallow bow with a flattening tail**, NOT a mirrored pie.
+Keep start (-24, 35), heading ~285°, 60 steps of `forward(70/60)`,
+but only **~20° total** left-rotation, front-loaded:
+`t.left(0.5)` for steps 1–30, `t.left(0.15)` for steps 31–60.
+Do not reuse pie's 60° — that over-curls it (cycle 3 scored 0.22).
