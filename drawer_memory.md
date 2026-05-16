@@ -17,6 +17,9 @@ previous attempts actually produced vs the ground truths.
 | dian     | 点   | c4 0.38 / c5 0.40 | failing — tiny dot; score barely moves |
 | heng_zhe | 横折 | c4 0.49 / c5 0.33 | shape correct; better-looking c5 scored LOWER |
 
+**Phase 2 characters (c6):** 十 ✓ recognized 0.78 · 人 ✓ recognized
+0.95 · 一 ✗ (OCR blind spot, featureless). Composition works.
+
 Memory transfer confirmed: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
 (c3) → 0.39 (c4) → 0.29 (c5). pie 0.40→1.00 the moment the exact
 rotation fix entered memory — strongest single-entry transfer signal.
@@ -37,6 +40,41 @@ rotation fix entered memory — strongest single-entry transfer signal.
    it may just be metric noise. Solved strokes (pie/shu at 1.00,
    ti 0.95) were clean, simple, well-centered — aim for that
    character, not for pixel-exact coordinates.
+
+---
+
+## Phase 2 — composing characters (started cycle 6)
+
+**Composition from memorized stroke recipes WORKS.** Cycle 6 (first
+Phase-2 cycle) composed scaled-up heng/shu/pie/na recipes into
+characters with no character-specific memory, and on the first
+attempt:
+
+- **十** (heng + shu as a plus sign, ~340px) → OCR'd **'十' @ 0.78,
+  is_correct=True**.
+- **人** (pie + na splaying from a top apex, ~320px) → OCR'd **'人'
+  @ 0.95, is_correct=True**.
+- **一** (single large heng) → **not recognized** (OCR empty).
+
+Key Phase-2 lessons:
+1. **The OCR `is_correct` signal is far cleaner than phase
+   correlation.** Multi-stroke characters that look right get
+   recognized with high confidence (0.78–0.95). Aim for OCR
+   recognizability, not phase-correlation visual_score (which is
+   ~0.15–0.28 even for *correct* characters — visual_score is no
+   longer the thing to optimize in Phase 2).
+2. **Scale up and center**: characters ~320–340px across, centered
+   on (0,0), composed from the lone-stroke recipes scaled by ~4–5×.
+   This worked.
+3. **Single-stroke "characters" (一) are an OCR blind spot** — too
+   featureless; a lone line is ambiguous to OCR (same root cause as
+   the Phase-1 thin-stroke metric noise). Best effort for 一: keep
+   it **near-flat (tilt ~0°, not 4°)** and use a **thicker pen
+   (pensize ~8–10)** so it reads as a bold bar, not a hairline.
+   But treat a failed 一 as a known hard case, not a regression.
+4. General: a **thicker pen (pensize 6–10) likely helps OCR** for
+   all Phase-2 characters — the GT/real glyphs are bold, not
+   hairline. Worth doing by default in Phase 2.
 
 ---
 
