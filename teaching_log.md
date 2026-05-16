@@ -81,3 +81,24 @@ prior entries.
 - **Cycle summary from last cycle:** "0/3; a wrong number in memory
   transfers as faithfully as a right one. Corrected na heading, dian
   method, heng_zhe scale. Carry all three." → Followed verbatim.
+
+## Cycle 6 — 2026-05-16
+
+- **Phase:** 2  ← **PHASE TRANSITION from 1**
+- **Batch:** [一, 十, 人]
+- **Why this batch:** The Curator's cycle-5 summary showed Phase-1
+  lone-stroke phase-correlation is near its noise floor (visually
+  better drawings scored lower) and the memory-emergence signal is
+  already well-demonstrated (shu/pie/ti solved; faithful verbatim
+  transfer proven; "a wrong number transfers as faithfully as a
+  right one" documented). Continuing to drill noisy lone strokes
+  has low information value. Advancing to Phase 2: simple characters
+  give phase correlation more structure to lock onto AND unlock the
+  OCR `is_correct` signal (a real recognizability target, less
+  noisy than thin-stroke correlation). Chose the three simplest
+  characters that are pure compositions of already-solved strokes —
+  一 (heng), 十 (heng+shu), 人 (pie+na) — so this cycle isolates the
+  *composition* skill, not new stroke learning.
+- **Cycle summary from last cycle:** "0/3; phase-correlation noisy/
+  non-monotonic at stroke scale; memory transfer works; recommend
+  Phase 2 or retiring noisy carry-overs." → Followed (Phase 2).
