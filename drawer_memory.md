@@ -5,21 +5,30 @@ previous attempts actually produced vs the ground truths.
 
 ---
 
-## Status of the basic 3 strokes
+## Stroke status
 
-| key  | char | cycle 1 visual | cycle 2 visual | status                                |
-|------|------|----------------|----------------|---------------------------------------|
-| heng | 横   | 0.28           | **0.74**       | **passed** (≥0.7 threshold); also OCR'd as '一' @ 0.75 — a clean heng IS visually the character 一 |
-| shu  | 竖   | 0.33           | **1.00**       | **passed** with perfect score; stable |
-| pie  | 撇   | 0.15           | 0.40 → **1.00** (c3) | **solved** — the cycle-3 ~60° rotation fix landed perfectly |
-| ti   | 提   | —              | **0.95** (c3, first attempt) | **passed** — straight rising flick from text alone |
-| na   | 捺   | —              | 0.22 (c3, first attempt) | failing — over-curled (reused pie's curvature) |
+| key      | char | best visual | status |
+|----------|------|-------------|--------|
+| heng     | 横   | 0.74        | **passed** (retired) |
+| shu      | 竖   | 1.00        | **solved** (retired) |
+| pie      | 撇   | 1.00        | **solved** (retired) — 60° curve recipe below |
+| ti       | 提   | 0.95        | **passed** (retired) — straight flick recipe below |
+| na       | 捺   | 0.22→0.31   | failing — heading was too steep (see fix) |
+| dian     | 点   | 0.38        | failing — drawn as a line, must be a tiny dot |
+| heng_zhe | 横折 | 0.49        | failing — shape right, oversized & off-center |
 
-Memory transfer is working: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
-(c3). pie went 0.40 → 1.00 the moment the Curator's exact rotation
-fix was in memory — strongest single-entry transfer signal so far.
-**Key lesson from c3: do NOT reuse one stroke's curvature for
-another. Each stroke has its own bend.**
+Memory transfer confirmed: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
+(c3) → 0.39 (c4, two brand-new strokes dragged it down). pie 0.40→1.00
+the moment the exact rotation fix entered memory — strongest
+single-entry transfer signal.
+
+**Key lessons:**
+1. Do NOT reuse one stroke's curvature/heading for another. Each
+   stroke has its own bend AND its own descent angle.
+2. A wrong number in memory transfers just as faithfully as a right
+   one. The c4 Drawer applied "na heading ~285°" exactly — and 285°
+   was wrong (too steep). Curator must get the number right, not
+   just the shape description.
 
 ---
 
@@ -69,32 +78,74 @@ first attempt. Solved enough; minor placement gap only.
 
 ## Recipes that need refinement
 
-### 捺 (na) — right-falling press — cycle 3 score 0.22
+### 捺 (na) — right-falling press — c3 0.22, c4 0.31
 
-The Drawer treated na as a mirror of pie and reused **pie's 60°
-rotation over 70px** (with `t.left(1)`). Result: a tight little
-curl, far too short and far too curved — it looked like a comma/hook,
-not a press stroke. Compared to the GT:
+Two failures. c3 over-curled (reused pie's 60°). c4 fixed the
+curvature but used **heading 285°, which is far too steep** — 285°
+is only 15° off straight-down, so the stroke came out nearly
+vertical. The GT na is a **shallow ~45° diagonal**: it descends
+from upper-left to lower-right at roughly equal x- and y-travel
+(like a gentle backslash that sags), then flattens toward more
+horizontal at the tail (concave-up — bows downward like the bottom
+of a bowl).
 
-- **na is much straighter than pie.** Its body is nearly a straight
-  diagonal that only gently bows; the curvature *decreases* toward
-  the end (the tail flattens out — that flattening is the defining
-  feature of a 捺).
-- The GT na descends from upper-left to lower-right over roughly the
-  same ~70px length but with only a **gentle bend (~20–25° total,
-  not 60°)**, and the bend should taper (more curve early, flatter
-  tail).
-- Direction/position were roughly OK (start upper-left ~(-24,+35),
-  heading ~280° = down-and-slightly-east). The error was almost
-  entirely **over-rotation**.
+Corrected fix for next attempt:
+```python
+t.penup(); t.goto(-30, 25); t.setheading(325)  # ~45° below horizontal, down-RIGHT
+t.pendown()
+for i in range(60):
+    t.forward(75 / 60)
+    if i < 35:
+        t.left(0.55)   # early curve
+    else:
+        t.left(0.12)   # tail flattens toward horizontal
+t.penup()
+```
+Why 325°: heading 0=east, 270=south. Down-and-right at ~45° is
+**~315–325°**. 285° (what c4 used) is almost due south — wrong.
+`t.left()` from 325° increases heading toward 360°=east, which
+flattens the tail toward horizontal — correct direction. General
+rule: **na = shallow ~45° descent, gentle bow, flattening tail.
+pie = deep 60° curve, much steeper. Not mirror images.**
 
-Fix to try next cycle: keep start (-24, 35), heading ~285–290°, 60
-steps of `forward(70/60)`, but rotate only **~20° total** with
-`t.left()`, and bias the rotation to the first half of the steps so
-the tail flattens (e.g. `t.left(0.5)` for the first 30 steps, then
-`t.left(0.15)` for the last 30). General rule: **na ≈ shallow bow,
-flattening tail. pie ≈ deep 60° curve. They are NOT mirror images
-in curvature — only in direction.**
+### 点 (dian) — dot — cycle 4 score 0.38
+
+The Drawer drew an **18px diagonal line** (a mini-pie). Wrong: the
+GT dian is a **tiny round dab, ~8–10px across, almost a filled
+point** — it reads as a dot, not a stroke. Fix: make it very short
+and blunt. Best approach — draw a small filled dot rather than a
+line:
+```python
+t.penup(); t.goto(0, 0); t.pendown()
+t.dot(10)            # a 10px filled round dot, centered
+t.penup()
+```
+If using a stroke instead, keep it under ~8px with a fat pen. The
+defining property: dian is the **smallest** stroke and is round,
+not linear.
+
+### 横折 (heng_zhe) — horizontal-fold — cycle 4 score 0.49
+
+**Shape was correct** (horizontal segment, then a sharp ~90° fold
+straight down — like a box's top-right corner). Closest of the
+three c4 strokes. Two errors: (1) **too big** — used 60px + 55px;
+compound strokes are more compact, use **~45px horizontal + ~45px
+vertical**; (2) **off-center** — it sat up-and-left of canvas
+center; the GT corner sits near center. The fold itself is right:
+go east (slight up-tilt ~4°), then `t.right(94)` to head south,
+then forward. Refined recipe:
+```python
+t.penup(); t.goto(-22, 5); t.setheading(4)
+t.pendown()
+t.forward(45)        # horizontal, shorter than a lone heng
+t.right(94)          # fold to straight-down
+t.forward(45)        # vertical drop
+t.penup()
+```
+Lesson for compound strokes generally: **each segment is shorter
+than the same stroke drawn alone** (a heng inside heng_zhe ≈ 45px,
+not the 70px of a standalone heng), and the whole figure must be
+recentered so its bounding box centers on the canvas.
 
 ---
 
@@ -142,10 +193,11 @@ as '一' with high confidence, you've drawn it well.
 
 ---
 
-## What to try next cycle if na repeats
+## Quick reference for carry-over strokes
 
-na = **shallow bow with a flattening tail**, NOT a mirrored pie.
-Keep start (-24, 35), heading ~285°, 60 steps of `forward(70/60)`,
-but only **~20° total** left-rotation, front-loaded:
-`t.left(0.5)` for steps 1–30, `t.left(0.15)` for steps 31–60.
-Do not reuse pie's 60° — that over-curls it (cycle 3 scored 0.22).
+- **na**: heading **325°** (NOT 285° — that was too steep), shallow
+  ~45° descent, front-loaded `t.left` ~25° total, flattening tail.
+  See full recipe above.
+- **dian**: use `t.dot(10)` at (0,0). It is a round dab, not a line.
+- **heng_zhe**: ~45px + ~45px segments (shorter than a lone heng),
+  recentered on canvas. Shape (right-angle fold) is already correct.

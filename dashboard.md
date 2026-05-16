@@ -1,42 +1,39 @@
 # DC-ACE Dashboard — last update: 2026-05-16
 
-- **Cycle**: 3
+- **Cycle**: 4
 - **Phase**: 1 (atomic strokes)
-- **This cycle**: **2/3 pass** by visual ≥ 0.7 threshold (pie 1.00, ti 0.95, na 0.22); avg visual **0.72**
-- **Last batch**: [pie, na, ti] (pie carry-over; na, ti new)
+- **This cycle**: **0/3 pass** (na 0.31, dian 0.38, heng_zhe 0.49); avg visual **0.39**
+- **Last batch**: [na, dian, heng_zhe] (na carry-over; dian, heng_zhe new)
 - **Trend**:
-  - c1 → 0/3 (avg 0.25) — cold start, no memory
-  - c2 → 2/3 (avg 0.71) — same batch, seeded memory
-  - c3 → 2/3 (avg 0.72) — pie solved via memory fix; 2 new strokes introduced, 1 passed first try
-- **Memory size**: ~155 lines / ~6 KB
-- **Curator note**: pie 0.40→1.00 from the exact memory fix — strongest single-entry transfer signal. ti generalized first try from text. na failed by wrongly reusing pie's curvature; memory now separates "deep curve" (pie) from "shallow bow" (na).
+  - c1 → 0/3 (avg 0.25) — cold start
+  - c2 → 2/3 (avg 0.71) — seeded memory, same batch
+  - c3 → 2/3 (avg 0.72) — pie solved via exact memory fix
+  - c4 → 0/3 (avg 0.39) — two new strokes; na fix had a wrong number
+- **Memory size**: ~203 lines / ~8 KB
+- **Curator note**: A wrong number in memory transfers as faithfully as a right one — the Drawer applied "na heading 285°" verbatim and it was too steep. Corrected to 325°. dian must be a dot not a line; heng_zhe shape is right but oversized.
 - **Loop status**: running (delete dc_ace_run/.stop to allow cycles; create it to pause)
 
-## The memory-transfer evidence (now two clean data points)
+## Headline finding (cycle 4)
 
-1. **Cycle 1→2**: identical task brief, only memory changed → avg 0.25→0.71.
-2. **Cycle 2→3, pie**: pie carried over with a *specific* rotation
-   fix written to memory (50°→60°). The fresh c3 Drawer applied it
-   and scored **1.00** (was 0.40). Targeted memory edits land
-   precisely, not just vaguely.
-
-New observation: a *new* stroke (ti) passed 0.95 on first attempt
-from text + canvas conventions alone — the Drawer's prior knowledge
-plus generic memory generalizes. But na shows the failure mode:
-over-generalizing one stroke's parameters (pie's 60°) onto another.
+The experiment's central mechanism cuts both ways: memory transfer
+is **faithful to the digit**, not just the gist. The c4 Drawer
+reproduced an incorrect heading (285°) exactly as written. This is
+strong evidence the Drawer is genuinely driven by memory contents,
+and a reminder that Curator precision is load-bearing.
 
 ## Per-stroke status
 
-| key  | char | best score | status                          |
-|------|------|------------|---------------------------------|
-| heng | 横   | 0.74       | passed (retired)                |
-| shu  | 竖   | 1.00       | passed, perfect (retired)       |
-| pie  | 撇   | 1.00       | **solved** (retired)            |
-| ti   | 提   | 0.95       | passed first try (retire)       |
-| na   | 捺   | 0.22       | carry over — shallow-bow fix in memory |
+| key      | char | best | status |
+|----------|------|------|--------|
+| heng     | 横   | 0.74 | passed (retired) |
+| shu      | 竖   | 1.00 | solved (retired) |
+| pie      | 撇   | 1.00 | solved (retired) |
+| ti       | 提   | 0.95 | passed (retired) |
+| na       | 捺   | 0.31 | carry over — heading corrected to 325° |
+| dian     | 点   | 0.38 | carry over — must be t.dot(), not a line |
+| heng_zhe | 横折 | 0.49 | carry over — shape OK, shrink + recenter |
 
 ## OCR observations
 
-- ti → '一' @ 0.41 (low — short diagonal flick, weak signal; expected)
-- pie, na → no OCR signal (lone curved strokes)
-- (prior) heng → '一' @ 0.75; shu → '一' @ 0.33
+- na → '一' @ 0.39 (low; near-vertical line misread)
+- dian, heng_zhe → no OCR signal (expected for non-character strokes)
