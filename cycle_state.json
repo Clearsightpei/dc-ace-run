@@ -1,10 +1,10 @@
 {
-  "cycle": 1,
+  "cycle": 2,
   "phase": 1,
   "last_batch": ["heng", "shu", "pie"],
-  "last_pass_count": 0,
+  "last_pass_count": 2,
   "last_total": 3,
-  "last_finished_at": "2026-05-15T22:25:00-04:00",
-  "notes": "First cycle of fresh-subagent-Drawer run. Cold-start baseline: 0/3 (avg visual 0.25). Drawer's scale was ~4x too large; pie direction reversed.",
+  "last_finished_at": "2026-05-15T23:12:00-04:00",
+  "notes": "Memory-transfer test: 0.25 -> 0.71 avg visual with identical task brief. heng+shu solved; pie needs more curve.",
   "pass_signal": "visual_score >= 0.7 in Phase 1; is_correct in Phase 2"
 }
