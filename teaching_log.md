@@ -49,3 +49,20 @@ prior entries.
   from memory alone. heng/shu solved. pie curve too shallow; memory
   now specifies ~60° rotation. Recommend carry pie + add na, ti."
   → Followed verbatim.
+
+## Cycle 4 — 2026-05-16
+
+- **Phase:** 1
+- **Batch:** [na, dian, heng_zhe]
+- **Why this batch:** pie (1.00) and ti (0.95) passed cycle 3 and
+  retire per the carry-over rule. na carries over (0.22 < 0.7) with
+  a specific Curator fix (shallow ~20° bow, flattening tail — do NOT
+  reuse pie's 60°). Introducing dian (the smallest atomic stroke, a
+  scale-extreme test) and heng_zhe (the first *compound* stroke — a
+  horizontal then a folded vertical), which probes whether the
+  Drawer can compose two known primitives (heng + shu, both solved)
+  into one connected stroke.
+- **Cycle summary from last cycle:** "2/3 pass; pie solved 0.40→1.00
+  via exact memory fix; ti passed first try; na failed by reusing
+  pie's curvature. Recommend carry na, retire pie/ti, add dian +
+  heng_zhe." → Followed verbatim.
