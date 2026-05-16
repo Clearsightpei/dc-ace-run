@@ -1,7 +1,1 @@
-<!--
-Curator → Teacher channel. Overwritten each cycle by the Curator.
-1–3 sentences describing what kind of mistake (or success) happened,
-to inform the next batch.
-
-Empty until cycle 1 finishes.
--->
+Cycle 1 (cold start, fresh-subagent Drawer): 0/3 passed visual (avg 0.25). Two issues dominated: (1) **scale** — the Drawer used ~300px-long strokes when the GTs are ~70px, so phase correlation collapsed; (2) **pie direction** — the Drawer drew the curve going UP-RIGHT (convex down, like a smile) when 撇 sweeps DOWN-LEFT (convex right). heng and shu were qualitatively correct (right shapes, right tilt direction); just too large. Memory now has explicit scale guidance ("~70 pixels for atomic strokes") and a direction correction for pie. Recommend repeating the same batch [heng, shu, pie] next cycle to see if memory transfers — this is the cleanest carry-over test.
