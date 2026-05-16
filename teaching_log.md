@@ -66,3 +66,18 @@ prior entries.
   via exact memory fix; ti passed first try; na failed by reusing
   pie's curvature. Recommend carry na, retire pie/ti, add dian +
   heng_zhe." → Followed verbatim.
+
+## Cycle 5 — 2026-05-16
+
+- **Phase:** 1
+- **Batch:** [na, dian, heng_zhe]  ← full carry-over of cycle 4
+- **Why this batch:** All three failed cycle 4 (<0.7). The Curator
+  identified that each failure was a *specific number/method* error,
+  not a conceptual one, and corrected memory: na heading 285°→325°,
+  dian should use t.dot() not a line, heng_zhe segments shortened &
+  recentered. Repeating the exact batch is the cleanest test of
+  whether corrected numeric memory now lands (mirrors the c2 and c3
+  memory-transfer tests). No new strokes — isolate the variable.
+- **Cycle summary from last cycle:** "0/3; a wrong number in memory
+  transfers as faithfully as a right one. Corrected na heading, dian
+  method, heng_zhe scale. Carry all three." → Followed verbatim.
