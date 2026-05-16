@@ -32,3 +32,20 @@ prior entries.
   and direction correction. Recommend repeat batch as memory-transfer
   test."
   → Following the recommendation verbatim.
+
+## Cycle 3 — 2026-05-16
+
+- **Phase:** 1
+- **Batch:** [pie, na, ti]
+- **Why this batch:** heng (0.74) and shu (1.00) passed in cycle 2
+  and leave the rotation per the carry-over rule. pie carries over
+  (0.40 < 0.7) and the Curator codified a specific fix (more total
+  rotation ~60°, ~60 steps). Introducing na and ti — the two
+  remaining foundational single-direction strokes — tests whether
+  the Drawer's general knowledge + canvas conventions in memory
+  generalize to *new* strokes it has never attempted, while pie
+  tests whether a targeted memory fix lands.
+- **Cycle summary from last cycle:** "2/3 pass; avg visual 0.25→0.71
+  from memory alone. heng/shu solved. pie curve too shallow; memory
+  now specifies ~60° rotation. Recommend carry pie + add na, ti."
+  → Followed verbatim.
