@@ -137,3 +137,20 @@ prior entries.
   "featureless horizontal" concern at a multi-stroke scale, and
   whether stacked-heng spacing is learnable). Both are pure
   compositions of solved strokes.
+
+## Cycle 9 — 2026-05-16
+
+- Phase: 2
+- Batch: [天, 本, 口]
+- Carry-overs: none. Cycle 8 was 3/3 with all reflections confirmed
+  (大 stacking fix verified @1.00); 大/八/三 retired cleanly per the
+  retire-only-after-confirmed-reflection rule.
+- Why this batch: Structural composition is the current frontier
+  (stroke shape is solved). 天 directly stress-tests the confirmed
+  stacking-order rule from the *opposite* side — it is the shape 大
+  must NOT become, so it checks the rule is understood as a
+  contrast, not memorized for one character. 本 builds on the
+  already-perfect 木 (木 + one bottom heng) — tests incremental
+  composition. 口 introduces a genuinely new structure: an enclosed
+  box (corners/folds), unseen so far. Expect 口 to be the likely
+  failure that seeds the next reflection.
