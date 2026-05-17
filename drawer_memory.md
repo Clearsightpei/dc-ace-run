@@ -17,9 +17,11 @@ previous attempts actually produced vs the ground truths.
 | dian     | 点   | c4 0.38 / c5 0.40 | failing — tiny dot; score barely moves |
 | heng_zhe | 横折 | c4 0.49 / c5 0.33 | shape correct; better-looking c5 scored LOWER |
 
-**Phase 2 characters:** c6 — 十 ✓0.78 · 人 ✓0.95 · 一 ✗ ·· c7 —
-一 ✓0.63 (bold-flat fix worked) · 木 ✓**1.00** · 大 ✗ (OCR'd 天).
-Composition works up to 4 strokes. 一 hypothesis CONFIRMED.
+**Phase 2 characters:** c6 — 十✓0.78 · 人✓0.95 · 一✗ ·· c7 —
+一✓0.63 · 木✓1.00 · 大✗(天) ·· c8 — 大✓**1.00** · 八✓1.00 ·
+三✓1.00. **c8 = first 3/3, all conf 1.00.** Composition works up
+to 4 strokes; both targeted reflections (一 bold-flat, 大 stacking
+order) were CONFIRMED on the carried-over retry.
 
 Memory transfer confirmed: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
 (c3) → 0.39 (c4) → 0.29 (c5). pie 0.40→1.00 the moment the exact
@@ -77,17 +79,19 @@ Key Phase-2 lessons:
    ```
 4. **Thicker pen (pensize ~9–12) is now confirmed default for all
    Phase-2 characters** — bold glyphs read; hairlines don't.
-5. **大 vs 天 — composition/structure matters, not just strokes
-   (c7 0 fail).** c7's 大 had the heng as the *topmost* element
-   with pie+na hanging below it → OCR'd **天** @ 0.39. In 大 the
-   **pie must start ABOVE the heng** (the pie's top is the
-   character's highest point and pokes through the bar); the heng
-   is crossed near its middle, NOT sitting on top of a separate
-   人/八 below it. Rule: for crossing characters, get the *vertical
-   stacking order* right — which stroke is topmost changes the
-   identity. 木 (✓1.00) worked because shu runs through the heng
-   from above; apply the same "vertical stroke pierces the heng,
-   extends above it" logic to 大's pie.
+5. **大 vs 天 — composition/structure matters (c7 ✗→ c8 ✓1.00,
+   CONFIRMED).** c7's 大 had the heng as the *topmost* element with
+   pie+na hanging below it → OCR'd 天 @ 0.39. c8 fix: **the pie
+   starts ABOVE the heng and pierces through it** (pie's top is the
+   character's highest point); heng crossed near its middle, NOT
+   sitting atop a separate 人/八. Result: 大 ✓ '大' @ 1.00.
+   **General confirmed rule: for crossing characters the vertical
+   stacking order — which stroke is topmost / which pierces which —
+   determines identity, not just the stroke set.** Same logic that
+   makes 木 work (shu pierces heng from above). Carry this to any
+   future crossing character (e.g. 天/夫/丈/本/末 differ from each
+   other and from 大 mainly by bar count and which stroke is
+   highest).
 
 ---
 

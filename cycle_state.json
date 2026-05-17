@@ -1,14 +1,14 @@
 {
-  "cycle": 7,
+  "cycle": 8,
   "phase": 2,
   "last_batch": [
-    "\u4e00",
     "\u5927",
-    "\u6728"
+    "\u516b",
+    "\u4e09"
   ],
-  "last_pass_count": 2,
+  "last_pass_count": 3,
   "last_total": 3,
-  "last_finished_at": "2026-05-16T17:10:00-04:00",
-  "notes": "2/3. Falsifiable memory hypothesis confirmed: bold+flat made \u4e00 recognizable (0.63). \u6728 recognized @1.00 (4-stroke composition). \u5927 OCR=\u5929 \u2014 vertical stacking-order/composition error, codified in memory.",
+  "last_finished_at": "2026-05-16T17:25:00-04:00",
+  "notes": "First 3/3 (all OCR conf 1.00). Mandatory carry-over rule validated end-to-end: \u5927 failed c7 (\u5929), Curator reflection, forced carry-over, confirmed \u5927@1.00 c8. Composition robust. visual_score now ~0.05 even when correct \u2014 ignore in Phase 2.",
   "pass_signal": "visual_score >= 0.7 in Phase 1; is_correct in Phase 2"
 }
