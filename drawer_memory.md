@@ -20,11 +20,26 @@ previous attempts actually produced vs the ground truths.
 **Phase 2 characters:** c6 — 十✓0.78 · 人✓0.95 · 一✗ ·· c7 —
 一✓0.63 · 木✓1.00 · 大✗(天) ·· c8 — 大✓**1.00** · 八✓1.00 ·
 三✓1.00 ·· c9 — 本✓0.97 · 口✓0.94 · 天✗(元) ·· c10 — 中✓1.00 ·
-日✓0.99 · 天✗(元 0.80) ·· c11 — 天✓**1.00** · 王✓1.00 · 土✓0.98.
-**c8 & c11 = 3/3.** Composition works to 5 strokes incl. enclosures
-(口/日/中). Confirmed reflections: 一 bold-flat, 大 stacking, **天
-= 短横+大 (the c9 theory was wrong; the c10-corrected theory was
-CONFIRMED c11 @ 1.00 — a full wrong→falsify→correct→confirm arc).**
+日✓0.99 · 天✗(元 0.80) ·· c11 — 天✓**1.00** · 王✓1.00 · 土✓0.98
+·· **c12 (Phase 3)** — 林✓0.96 · 古✓0.99 · 困✓0.46 (correct but
+low conf — borderline). **c8, c11, c12 = 3/3.** Confirmed
+reflections: 一 bold-flat, 大 stacking, 天 = 短横+大 (full
+wrong→falsify→correct→confirm arc, c9–c11).
+
+7. **Phase 3 — radical arrangement works first try (c12 3/3).**
+   Multi-radical characters built by scaling DOWN confirmed
+   sub-character recipes and positioning them:
+   - **林 = two 木 side by side** (left slightly narrower) → ✓0.96.
+   - **古 = 十 stacked above 口** → ✓0.99.
+   - **困 = 口 enclosing a 木** → ✓ but only **0.46** (borderline).
+   Rule: each radical is scaled to ≈half a standalone character so
+   the pair fills a ~320–380px footprint. The three canonical
+   arrangements (side-by-side / stacked / nested) all worked from
+   memorized parts with no new strokes.
+   **困 caveat:** a nested radical inside a clean thin box gives OCR
+   low confidence. To firm a nested character up, make the inner
+   radical **larger and bolder** relative to the box and keep the
+   box reasonably tight — don't let the inner part get small.
 
 Memory transfer confirmed: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
 (c3) → 0.39 (c4) → 0.29 (c5). pie 0.40→1.00 the moment the exact
