@@ -118,3 +118,22 @@ prior entries.
 - **Cycle summary from last cycle:** "2/3 correct; composition
   works; 一 is an OCR blind spot; recommend more multi-stroke chars
   + optional bold-pen retry of 一." → Followed.
+
+## Cycle 8 — 2026-05-16
+
+- Phase: 2
+- Batch: [大, 八, 三]
+- Carry-overs: 大 (carried from cycle 7, where it OCR'd as 天 @ 0.39).
+  Testing the Curator's c7 reflection: "in 大 the pie must rise ABOVE
+  the heng; vertical stacking order determines identity for crossing
+  characters." 一 and 木 retired — both passed cleanly on the cycle
+  *after* their Curator reflections (一 bold+flat fix confirmed
+  0.63; 木 @ 1.00), satisfying the new retire-only-after-confirmed
+  -reflection rule.
+- Why this batch: New mandatory carry-over rule forces 大 back until
+  it cleanly passes post-reflection. Filled remaining slots with 八
+  (pure pie+na, no crossing — isolates whether the splay shape
+  alone is recognizable) and 三 (three heng — probes the earlier
+  "featureless horizontal" concern at a multi-stroke scale, and
+  whether stacked-heng spacing is learnable). Both are pure
+  compositions of solved strokes.
