@@ -20,10 +20,11 @@ previous attempts actually produced vs the ground truths.
 **Phase 2 characters:** c6 — 十✓0.78 · 人✓0.95 · 一✗ ·· c7 —
 一✓0.63 · 木✓1.00 · 大✗(天) ·· c8 — 大✓**1.00** · 八✓1.00 ·
 三✓1.00 ·· c9 — 本✓0.97 · 口✓0.94 · 天✗(元) ·· c10 — 中✓1.00 ·
-日✓0.99 · 天✗(元 0.80, c9 reflection falsified). **c8 = first
-3/3.** Composition works to 5 strokes incl. enclosures (口/日/中).
-Confirmed reflections: 一 bold-flat, 大 stacking. **天 is the open
-case** — its c9 fix was applied faithfully yet failed (see #6).
+日✓0.99 · 天✗(元 0.80) ·· c11 — 天✓**1.00** · 王✓1.00 · 土✓0.98.
+**c8 & c11 = 3/3.** Composition works to 5 strokes incl. enclosures
+(口/日/中). Confirmed reflections: 一 bold-flat, 大 stacking, **天
+= 短横+大 (the c9 theory was wrong; the c10-corrected theory was
+CONFIRMED c11 @ 1.00 — a full wrong→falsify→correct→confirm arc).**
 
 Memory transfer confirmed: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
 (c3) → 0.39 (c4) → 0.29 (c5). pie 0.40→1.00 the moment the exact
@@ -111,13 +112,17 @@ Key Phase-2 lessons:
      only ONE full-width bar (the heng of the embedded 大); the
      "second bar" is just a short heng on top. Do NOT draw two
      full stacked bars with detached legs underneath.
-   - Verify c11: build 天 as `short_heng_on_top + 大(confirmed
-     recipe)`. Reuse the c8 大 code for the lower 3 strokes.
-   - Meta-lesson: a reflection can be *faithfully applied and still
-     wrong*. The carry-over rule is what surfaced this — c10's
-     "successful application, failed outcome" falsified the c9
-     theory and forced the corrected one. Don't trust a reflection
-     until a post-reflection carry-over actually passes.
+   - **c11 CONFIRMED**: 天 built as `short_heng_on_top + 大(confirmed
+     recipe)` → OCR'd '天' @ 1.00. 天 is now SOLVED. Recipe: one
+     short heng up top, then the c8 大 (lower heng with pie/na
+     piercing up through it) directly below.
+   - Meta-lesson (validated): a reflection can be *faithfully
+     applied and still wrong*. The carry-over rule surfaced this —
+     c10's "successful application, failed outcome" falsified the c9
+     theory; the corrected theory was confirmed c11. Don't trust a
+     reflection until a post-reflection carry-over actually passes;
+     a faithful-but-failed retry is the signal to fix the *theory*,
+     not the execution.
 
 ---
 
