@@ -154,3 +154,19 @@ prior entries.
   composition. 口 introduces a genuinely new structure: an enclosed
   box (corners/folds), unseen so far. Expect 口 to be the likely
   failure that seeds the next reflection.
+
+## Cycle 10 — 2026-05-16
+
+- Phase: 2
+- Batch: [天, 中, 日]
+- Carry-overs: 天 (carried from cycle 9, OCR'd 元 @ 0.61). Testing
+  the Curator's c9 reflection: "天's bottom is the 人 shape — pie+na
+  share one apex and splay, never cross; a crossing reads as 儿/乂".
+  本/口 retired (clean first-try passes, no prior failure).
+- Why this batch: Mandatory carry-over forces 天 back to verify the
+  apex-vs-crossing reflection (a clean falsifiable test, parallel
+  to the confirmed 大-stacking case). Filled remaining slots by
+  *reusing the newly-working 口 enclosure*: 中 (口 + a vertical
+  piercing it) and 日 (口 + a middle bar). This tests whether the
+  enclosure primitive composes with other strokes the way the
+  line/splay primitives already do.
