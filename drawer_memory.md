@@ -19,10 +19,11 @@ previous attempts actually produced vs the ground truths.
 
 **Phase 2 characters:** c6 — 十✓0.78 · 人✓0.95 · 一✗ ·· c7 —
 一✓0.63 · 木✓1.00 · 大✗(天) ·· c8 — 大✓**1.00** · 八✓1.00 ·
-三✓1.00 ·· c9 — 本✓0.97 · 口✓0.94 · 天✗(元). **c8 = first
-3/3.** Composition works to 5 strokes incl. a new enclosure (口).
-Targeted reflections (一 bold-flat, 大 stacking) CONFIRMED on
-carried-over retries.
+三✓1.00 ·· c9 — 本✓0.97 · 口✓0.94 · 天✗(元) ·· c10 — 中✓1.00 ·
+日✓0.99 · 天✗(元 0.80, c9 reflection falsified). **c8 = first
+3/3.** Composition works to 5 strokes incl. enclosures (口/日/中).
+Confirmed reflections: 一 bold-flat, 大 stacking. **天 is the open
+case** — its c9 fix was applied faithfully yet failed (see #6).
 
 Memory transfer confirmed: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
 (c3) → 0.39 (c4) → 0.29 (c5). pie 0.40→1.00 the moment the exact
@@ -93,17 +94,30 @@ Key Phase-2 lessons:
    future crossing character (e.g. 天/夫/丈/本/末 differ from each
    other and from 大 mainly by bar count and which stroke is
    highest).
-6. **天 vs 元 — a bottom 人/八 pair must NOT cross (c9 ✗→ verify
-   c10).** c9's 天 had two stacked top bars (correct) but the pie
-   and na *crossed each other* below the bar, forming a 乂/儿; with
-   二 on top that OCR'd as **元 @ 0.61**. In 天 the bottom is
-   **exactly the working 人 shape** (✓0.95 in c6): pie + na **share
-   one top apex and splay outward like an inverted V — they do not
-   cross.** Fix: reuse the c6 人 composition verbatim for 天's
-   bottom, apex touching the centre-underside of the lower heng.
-   General rule: any bottom 人/八-type pair = *shared apex + outward
-   splay*; an X-crossing reads as 儿/又/乂. (大 ✓1.00 also keeps
-   pie+na non-crossing through a single heng — same principle.)
+6. **天 = short heng + 大 (NOT 二 + 人). c9 ✗(元 0.61) → c10 still
+   ✗(元 0.80) → corrected hypothesis, verify c11.**
+   - c9 theory: "天 bottom = 人, pie+na crossed → looked like 儿".
+     Tried "shared apex, no crossing".
+   - c10 applied that exactly (pie+na share an apex, do not cross,
+     splay below the lower bar) — and it STILL OCR'd 元 @ 0.80.
+     **So the c9 reflection was wrong, even though it was applied
+     faithfully.** A non-piercing 人 sitting *below* two stacked
+     bars is structurally 二+人 = 元.
+   - **Correct structure: 天 = one short heng on top, then a 大
+     directly below it.** The bottom is the *confirmed 大 recipe*
+     (lesson 5): the pie starts ABOVE the lower heng and **pierces
+     through it** (pie's top is above the bar), na from the same
+     crossing — exactly what made 大 score 1.00 in c8. There is
+     only ONE full-width bar (the heng of the embedded 大); the
+     "second bar" is just a short heng on top. Do NOT draw two
+     full stacked bars with detached legs underneath.
+   - Verify c11: build 天 as `short_heng_on_top + 大(confirmed
+     recipe)`. Reuse the c8 大 code for the lower 3 strokes.
+   - Meta-lesson: a reflection can be *faithfully applied and still
+     wrong*. The carry-over rule is what surfaced this — c10's
+     "successful application, failed outcome" falsified the c9
+     theory and forced the corrected one. Don't trust a reflection
+     until a post-reflection carry-over actually passes.
 
 ---
 
