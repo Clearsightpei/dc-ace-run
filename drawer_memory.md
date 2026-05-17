@@ -19,9 +19,10 @@ previous attempts actually produced vs the ground truths.
 
 **Phase 2 characters:** c6 — 十✓0.78 · 人✓0.95 · 一✗ ·· c7 —
 一✓0.63 · 木✓1.00 · 大✗(天) ·· c8 — 大✓**1.00** · 八✓1.00 ·
-三✓1.00. **c8 = first 3/3, all conf 1.00.** Composition works up
-to 4 strokes; both targeted reflections (一 bold-flat, 大 stacking
-order) were CONFIRMED on the carried-over retry.
+三✓1.00 ·· c9 — 本✓0.97 · 口✓0.94 · 天✗(元). **c8 = first
+3/3.** Composition works to 5 strokes incl. a new enclosure (口).
+Targeted reflections (一 bold-flat, 大 stacking) CONFIRMED on
+carried-over retries.
 
 Memory transfer confirmed: avg visual 0.25 (c1) → 0.71 (c2) → 0.72
 (c3) → 0.39 (c4) → 0.29 (c5). pie 0.40→1.00 the moment the exact
@@ -92,6 +93,17 @@ Key Phase-2 lessons:
    future crossing character (e.g. 天/夫/丈/本/末 differ from each
    other and from 大 mainly by bar count and which stroke is
    highest).
+6. **天 vs 元 — a bottom 人/八 pair must NOT cross (c9 ✗→ verify
+   c10).** c9's 天 had two stacked top bars (correct) but the pie
+   and na *crossed each other* below the bar, forming a 乂/儿; with
+   二 on top that OCR'd as **元 @ 0.61**. In 天 the bottom is
+   **exactly the working 人 shape** (✓0.95 in c6): pie + na **share
+   one top apex and splay outward like an inverted V — they do not
+   cross.** Fix: reuse the c6 人 composition verbatim for 天's
+   bottom, apex touching the centre-underside of the lower heng.
+   General rule: any bottom 人/八-type pair = *shared apex + outward
+   splay*; an X-crossing reads as 儿/又/乂. (大 ✓1.00 also keeps
+   pie+na non-crossing through a single heng — same principle.)
 
 ---
 
