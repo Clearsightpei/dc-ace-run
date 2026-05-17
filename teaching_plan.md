@@ -2,8 +2,20 @@
 
 ## Current phase
 
-**Phase 2 — simple characters** (entered cycle 6). Rationale for the
-transition: by cycle 5, Phase-1 lone-stroke phase-correlation was
+**Phase 3 — complex (multi-radical) characters** (entered cycle 12).
+Rationale: Phase 2 (cycles 6–11) well-evidenced the full thesis —
+emergent memory transfers, composes up to 5 strokes, generalizes to
+new structures (enclosures), and *self-corrects* (the 天 wrong→
+falsify→correct→confirm arc across c9–c11, made visible by the
+mandatory carry-over rule). Two 3/3 cycles (c8, c11), 14 solved
+characters. The next untested skill is arranging known
+sub-characters into one glyph; Phase-3 entry uses only solved
+radicals (木/十/口) to isolate arrangement from new-stroke learning.
+
+### Phase 2 — simple characters (cycles 6–11, completed)
+
+Entered cycle 6. Rationale for that transition: by cycle 5,
+Phase-1 lone-stroke phase-correlation was
 near its noise floor (visually-better drawings scored *lower*), and
 the experiment's core question — does memory emerge and transfer? —
 was already answered yes (shu/pie/ti solved from memory; faithful
