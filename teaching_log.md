@@ -187,3 +187,21 @@ prior entries.
   王 and 土 are new but built only from heng+shu (both solved since
   cycle 2); they keep the batch productive and probe stacked-bar +
   spine compositions without introducing new strokes.
+
+## Cycle 12 — 2026-05-16
+
+- Phase: 3  ← **PHASE TRANSITION from 2**
+- Batch: [林, 古, 困]
+- Carry-overs: none. Cycle 11 was 3/3 with 天's corrected reflection
+  confirmed @1.00; 天/王/土 retired cleanly per the
+  retire-only-after-confirmed-reflection rule.
+- Why this batch: The Curator's c11 summary judged the Phase-2
+  thesis (emergent memory transfers, composes, AND self-corrects)
+  well-evidenced — two 3/3 cycles, a completed wrong→falsify→
+  correct→confirm arc, 14 solved characters. Advancing to Phase 3
+  (multi-radical characters). To isolate the NEW skill — arranging
+  two known sub-characters into one glyph — every character here is
+  built only from already-solved sub-characters: 林 = 木+木 (side by
+  side), 古 = 十 over 口 (stacked), 困 = 口 enclosing 木 (nesting).
+  This tests the three canonical radical arrangements without any
+  new strokes or sub-characters.
