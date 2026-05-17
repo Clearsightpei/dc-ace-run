@@ -170,3 +170,20 @@ prior entries.
   piercing it) and 日 (口 + a middle bar). This tests whether the
   enclosure primitive composes with other strokes the way the
   line/splay primitives already do.
+
+## Cycle 11 — 2026-05-16
+
+- Phase: 2
+- Batch: [天, 王, 土]
+- Carry-overs: 天 (carried from cycles 9 AND 10 — failed both as 元).
+  Testing the CORRECTED c10 reflection: "天 = short heng on top +
+  the confirmed 大 recipe (pie/na pierce the lower heng), NOT 二+人".
+  The c9 theory was applied faithfully in c10 yet still failed,
+  which falsified it; this is the second, corrected hypothesis.
+  中/日 retired (clean first-try passes).
+- Why this batch: Mandatory carry-over keeps 天 in until it passes
+  post-reflection — and this is now a test of a *corrected* theory,
+  the most informative kind (does the second hypothesis hold?).
+  王 and 土 are new but built only from heng+shu (both solved since
+  cycle 2); they keep the batch productive and probe stacked-bar +
+  spine compositions without introducing new strokes.
